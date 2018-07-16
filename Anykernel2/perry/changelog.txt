@@ -1,3 +1,6 @@
+* restructure anykernel directory
+* First compilation. Test run
+* More fixes for compilation. Moved and copied driver files from missing includes, and edited some include targets
 * Added Anykernel2 source into root for easy flashing
 * Edit build script to build Kernel for perry
 * added shell script to automate clean builds, courtesy of @facuarmo
