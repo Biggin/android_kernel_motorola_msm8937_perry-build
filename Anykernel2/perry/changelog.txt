@@ -1,0 +1,7 @@
+* Added Anykernel2 source into root for easy flashing
+* Edit build script to build Kernel for perry
+* added shell script to automate clean builds, courtesy of @facuarmo
+* Modified Makefile to ignore Werror failures. Thanks to @facuarmo
+* Added toolchains into source for convenience and auditing. Will remove obsolete toolchain when compiled successfully with one of the 2.
+* Edit rmnet_ipa.c to include correct trace file
+* First commit
