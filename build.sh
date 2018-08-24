@@ -5,10 +5,10 @@ device_codename maintainer_username\n\n\tNOTE:
 '[thread_amount]' can be an integer or 'auto'.\n\n"
  exit 1
 fi
- 
+
 KERNEL_DIR=$PWD 
-TOOLCHAINDIR=$(pwd)/toolchain/gcc-linaro-7.2.1 
-DATE=$(date +"%d%m%Y") KERNEL_NAME="OrgasmKernel"
+TOOLCHAINDIR=$(pwd)/toolchain/gcc-linaro64-7.2.1
+DATE=$(date +"%m%d%Y") KERNEL_NAME="OrgasmKernel"
  
 # Merge the toolchain parts, unpack it and remove 
 # compressed files.
@@ -27,9 +27,9 @@ DATE=$(date +"%d%m%Y") KERNEL_NAME="OrgasmKernel"
 # fi
 # cd $KERNEL_DIR
  
-export ARCH=arm && export SUBARCH=arm
+export ARCH=arm64 && export SUBARCH=arm64
 # export KBUILD_BUILD_HOST="SEND_NUDES__PLEASE"
-export CROSS_COMPILE=$TOOLCHAINDIR/bin/arm-linux-gnueabi- 
+export CROSS_COMPILE=$TOOLCHAINDIR/bin/aarch64-linux-gnu-
 export USE_CCACHE=1
  
 if [ -e arch/arm/boot/zImage ];
@@ -41,8 +41,8 @@ export DEVICE="$2"
 export KBUILD_BUILD_USER="$3" 
 Anykernel_DIR=$KERNEL_DIR/Anykernel2/$DEVICE
 mkdir -p $Anykernel_DIR
-VER="-v70"
-TYPE="-O"
+VER="-v0.1"
+TYPE="-Alpha"
 export FINAL_ZIP="$KERNEL_NAME"-"$DEVICE"-"$DATE""$TYPE""$VER".zip 
 if [ "$1" == 'auto' ]
 then
@@ -51,8 +51,8 @@ else
  t=$1
 fi
 GCCV=$("$CROSS_COMPILE"gcc -v 2>&1 | tail -1 | cut -d ' ' -f 3)
-echo "** Build script courtesy of @facuarmo **"
 printf "\nTHREADS: $t\nDEVICE: $2\nMAINTAINER: $3\nGCC VERSION: $GCCV\n\n"
+echo "** Build script courtesy of @facuarmo **"
 echo "=> Making kernel binary..."
 make $2_defconfig
 make -j$t zImage
