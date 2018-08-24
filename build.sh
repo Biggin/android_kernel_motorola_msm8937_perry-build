@@ -41,9 +41,9 @@ export DEVICE="$2"
 export KBUILD_BUILD_USER="$3" 
 Anykernel_DIR=$KERNEL_DIR/Anykernel2/$DEVICE
 mkdir -p $Anykernel_DIR
-VER="-v0.1"
-TYPE="-Alpha"
-export FINAL_ZIP="$KERNEL_NAME"-"$DEVICE"-"$DATE""$TYPE""$VER".zip 
+VER="_v0.1"
+TYPE="-x86_64-Alpha"
+export FINAL_ZIP="$KERNEL_NAME""$TYPE"_"$DEVICE"_"$DATE""$VER".zip 
 if [ "$1" == 'auto' ]
 then
  t=$(nproc --all)
@@ -55,7 +55,7 @@ printf "\nTHREADS: $t\nDEVICE: $2\nMAINTAINER: $3\nGCC VERSION: $GCCV\n\n"
 echo "** Build script courtesy of @facuarmo **"
 echo "=> Making kernel binary..."
 make $2_defconfig
-make -j$t zImage
+make -j$t
 if [ $? -ne 0 ]
 then
  echo "Kernel compilation failed, can't continue."
