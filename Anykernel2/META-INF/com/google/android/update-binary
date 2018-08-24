@@ -80,7 +80,7 @@ if [ -f /tmp/anykernel/version ]; then
   ui_print " ";
 fi;
 ui_print " ";
-ui_print "AnyKernel2 by osm0sis @ xda-developers";
+ui_print "AnyKernel2 Flashable Zip by osm0sis @ xda-developers";
 ui_print " ";
 ui_print " ";
 

@@ -51,6 +51,7 @@ else
  t=$1
 fi
 GCCV=$("$CROSS_COMPILE"gcc -v 2>&1 | tail -1 | cut -d ' ' -f 3)
+echo "** Build script courtesy of @facuarmo **"
 printf "\nTHREADS: $t\nDEVICE: $2\nMAINTAINER: $3\nGCC VERSION: $GCCV\n\n"
 echo "=> Making kernel binary..."
 make $2_defconfig
