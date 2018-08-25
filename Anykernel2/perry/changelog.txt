@@ -1,3 +1,12 @@
+* staging: prima: Ensure compatibility with GCC6
+* nothing major. small edits
+* Starting attempts to build 64bit
+*   Merge branch 'dev' of https://github.com/RebelLion420/android_kernel_motorola_msm8937_perry-build into dev
+|\  
+| * Optimized Anykernel2 directory for use with perry kernel. Removed unnecessary files
+* | rebase defconfig off of msm8937-perf_defconfig
+|/  
+* Test build adding feature: Input Boost
 * restructure anykernel directory
 * First compilation. Test run
 * More fixes for compilation. Moved and copied driver files from missing includes, and edited some include targets

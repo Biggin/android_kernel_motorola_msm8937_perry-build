@@ -32,9 +32,10 @@ export ARCH=arm64 && export SUBARCH=arm64
 export CROSS_COMPILE=$TOOLCHAINDIR/bin/aarch64-linux-gnu-
 export USE_CCACHE=1
  
-if [ -e arch/arm/boot/zImage ];
+if [ -e arch/arm64/boot/Image ];
 then
-	rm arch/arm/boot/zImage #Just to make sure it doesn't make flashable zip with previous zImage
+	rm arch/arm64/boot/Image
+	rm arch/arm64/boot/Image.gz #Just to make sure it doesn't make flashable zip with previous zImage
 fi;
  
 export DEVICE="$2"
@@ -81,7 +82,8 @@ cp "$Anykernel_DIR/modules/system/lib/modules/wlan.ko"
  
 echo "Kernel compilation completed"
  
-cp $KERNEL_DIR/arch/arm/boot/zImage $Anykernel_DIR
+cp $KERNEL_DIR/arch/arm64/boot/Image $Anykernel_DIR
+cp $KERNEL_DIR/arch/arm64/boot/Image.gz $Anykernel_DIR
  
 cd $Anykernel_DIR
  
